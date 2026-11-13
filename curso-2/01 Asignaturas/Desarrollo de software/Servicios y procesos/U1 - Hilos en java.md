@@ -365,7 +365,11 @@ Exige dos condiciones: **exclusión mutua** (no modificar el recurso a la vez) y
 
 ---
 
-## 7. Errores típicos
+## 7. Uso del spleep / cola / eseperar hasta que toque
+- Despertar a los hilos, notify y notify all
+- Coordina cómo entrar en la región crítica
+
+## 8. Errores típicos
 
 |Error|Consecuencia|Solución|
 |---|---|---|
@@ -410,82 +414,10 @@ System.out.println("Total: " + contador.getValor());
 Total: 2000
 ```
 
----
+### Ejercicio: Suma de matrices usando hilos
+- Calcular suma de matrices A B, en una matriz C
+- Cada posición de la Matriz A, se suma con su respectivo en la Matriz B -> Se ejecuta un hilo por cada suma, el hilo realiza la operación y añade en la matric final C 
+- Se ejecuta un hilo por cada suma anterior y, complicación extra, un hilo extra ha de mostrar el resultado correcto de la matriz C
 
-## 9. Ejercicio propuesto: laboratorio de hilos
-
-> [!example] Enunciado 
-> Desarrollar una aplicación de escritorio, con arquitectura **MVP**, que funcione como laboratorio para observar el comportamiento de los hilos sobre el problema del productor-consumidor.
-> 
-> **Interfaz.** La ventana se divide en dos zonas:
-> 
-> - **Izquierda:** panel de control con las variables configurables de la simulación.
-> - **Derecha:** panel de estadísticas que visualiza la evolución de la simulación.
-> 
-> **Arquitectura.** Modelo, vista y presentador se comunican a través de interfaces (`IModel`, `IView`, `IPresenter`). El presentador recibe la vista y el modelo mediante inyección de dependencias.
-> 
-> **Modelo.** Se compone de un productor, un consumidor y un recurso compartido. El productor y el consumidor se ejecutan en hilos y actúan sobre la cantidad almacenada en el recurso.
-> 
-> Las variables concretas del panel de control y las estadísticas que se representan quedan por definir.
-
-Estructura propuesta para la arquitectura:
-
-```mermaid
-classDiagram
-    class IPresenter {
-        <<interface>>
-    }
-    class IModel {
-        <<interface>>
-    }
-    class IView {
-        <<interface>>
-    }
-
-    IPresenter o-- IView
-    IPresenter o-- IModel
-    IView <|.. MyView
-    IPresenter <|.. MyPresenter
-    IModel <|.. MyModel
-```
-
-Estructura propuesta para el modelo:
-
-```mermaid
-classDiagram
-    class IModel {
-        <<interface>>
-    }
-    class Model {
-        -addTo()
-        -removeTo()
-    }
-    class Producer {
-        +run()
-    }
-    class Resource {
-        -int quantity
-        +addResource()
-        +removeResource()
-    }
-    class Consumer {
-        +run()
-    }
-
-    IModel <|.. Model
-    Model "1" *-- "1" Producer
-    Model "1" *-- "1" Resource
-    Model "1" *-- "1" Consumer
-```
-
-> [!important] Recordatorio: contenidos de otras unidades necesarios para el ejercicio
-> 
-> - **Arquitectura MVP, interfaces e inyección de dependencias:** se tratan en otra parte del curso (arquitectura de software).
-> - **Construcción de la ventana y los paneles** (`JFrame`, `JPanel`, gestores de distribución): se tratan en otra parte del curso (interfaces gráficas). Documentación de referencia de Oracle:
->     - [Uso de los gestores de distribución](https://docs.oracle.com/javase/tutorial/uiswing/layout/using.html)
->     - [Componentes Swing](https://docs.oracle.com/javase/tutorial/uiswing/components/index.html)
-> - **Procesos, núcleos y arquitectura del procesador:** [[01.1 - Introducción a servicios y procesos|Introducción a servicios y procesos]].
-> - **Coordinación entre productor y consumidor** (`wait()`, `notify()`): pendiente de los mecanismos de sincronización.
-
----
-**Navegación:**
+A quien pertenece? Hilos o Videojuegos?
+https://jumibot.github.io/SpriteAnimation/docs/material/mvp-interfaces-inyeccion.html

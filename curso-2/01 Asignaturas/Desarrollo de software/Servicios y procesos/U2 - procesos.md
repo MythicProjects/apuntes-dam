@@ -1,0 +1,71 @@
+# Comunicaciones
+
+- 7 capas OSI - Aplicarlos? para que?
+- Crear servidor / o como conectar 2 servidores
+- Uso de puertos
+- IP un apublica y el resto privada
+- Internet viene por un punto de acceso
+- Puertos WAN y Puertos LAN
+- IP tables
+- Switch y Router que son / diferenias
+- Envio a traves de internet (TCP ?) + viaje de la información de stack a stack
+	-  Protocolo Tcp encaraga de enviar archivos de forma fiable para que llegue aquí
+	- IP Tables? 
+- TCP-IP (junto, por que? es un error? se refieren a ambos?)
+- Servicio, ha de llegar allí identificado por el puerto
+- Información ha de llevar a una máquina -> protocolo IP
+- Dos tipos de máquina, publica 
+- IP publica, privada y dinamica
+- Explicacion de que llegan peticiones a un router utilizando una IP publica. 
+- Protocolo ARP y tarjeta ARP
+- Router - enrutamos paquetes
+- Reglas de enrutamiento
+- Cada "boca tiene su dirección IP" - interfaces - Un IP por boca/interfaz
+- En casa usamos ARP y switches
+- Switch:
+	- Conectar con otra máquina que identifica por la tabla arp y sabe por qué puerto enviar info.
+		- Tablas que va guardando donde se conectan dispositivos
+	- Protocolo inundación si no está registrado
+	- Ya no se su ip, se su MAC ?
+	- Es posible estar conectado a dos switches diferentes y es un problema
+- Router, WAN y LAN estan separadas
+	- Tiene/es un servidor de paginas web ??
+	- Tambien tiene firewall
+- La IP no sirve porque usa MAC para comunicación
+- Hacer un ping (que es) 
+- Traducir dirección IP a MAC para hacer esa comunicación
+- Dirección MAC especial que hace Broadcasting (que es y que aporta a esto)
+- Explicado ManInTheMidle - ponerse entre el usuario y el router
+	- Como lo hace para ponerse entre internet y local
+- Al router llega en protocolo ARP desde los usuarios
+- Conseguir Broadcast para saber la MAC del router
+---
+diferencia entre trafico saliente y trafico entrante
+- petición directa de fuera que nadie ha preguntado
+- intercambio directo usuario-pagina-web
+- Es diferente lo que se pide y lo que te piden (esa es la idea)
+- donde empieza la petición cambia cómo se gestiona
+Ejemplo: cuando alguien nos pide a nuestro servidor 
+- 192.168.1.10/puerto -> que es este "puerto" puerto ttp (identifica un servicio al que te diriges, puede haber más de un servicio)
+- servicio que la recibe bonding 
+- Buffer queda la información a la espera del programa
+- El SO debe saber cuál es la info y donde esta
+- Puertos asignados a determinados serivicos.
+- wikipedia -> puertos TCP 64000 posibles algunos reservados
+- puerto del http es el 80, 443, 20, 21 , en qué puerto se pone qué y por qué
+- apache
+- telnet
+- ftp
+- smnp
+- Gateway configurar para "salir de la red"
+- ISP asigna IP
+- Rangos de direcciones privadas
+- También hay puertos públicos
+- Puertos identifican servicio pero puede haber problemas, si hay dos servidores web hacia donde se dirige. Lo saben por "un elemento" que decide mediante una regla donde enviar.
+- Un sistema de seguridad firewall permiten ocultar los puertos de un servidor
+- "traslacion"
+- NAT/PAT estatico y dinámico
+- Forwardear puerto
+- Como forwardear puertos
+- ping
+- 
